@@ -18,6 +18,7 @@
 		"TranslationPlugin",
 		"TranslationPlugin",
 		"AppPlugin",
+		"DialogPlugin",
 		"HapticsPlugin",
 		"KeyboardPlugin",
 		"StatusBarPlugin",

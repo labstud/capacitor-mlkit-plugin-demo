@@ -126,6 +126,14 @@
         <ion-button expand="block" (click)="scan()" [disabled]="!isSupported"
           >Scan</ion-button
         >
+
+        <ion-button expand="block" (click)="dialog()"
+          >Dialog</ion-button
+        >
+
+        <ion-button expand="block" (click)="haptic()"
+        >Haptic</ion-button
+      >
         <ion-button
           expand="block"
           (click)="openSettings()"

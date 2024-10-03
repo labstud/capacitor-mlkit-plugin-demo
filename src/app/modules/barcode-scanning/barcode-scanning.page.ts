@@ -9,6 +9,8 @@ import {
 } from '@capacitor-mlkit/barcode-scanning';
 import { FilePicker } from '@capawesome/capacitor-file-picker';
 import { BarcodeScanningModalComponent } from './barcode-scanning-modal.component';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { Dialog } from '@capacitor/dialog';
 
 @Component({
   selector: 'app-barcode-scanning',
@@ -61,10 +63,23 @@ export class BarcodeScanningPage implements OnInit {
     });
   }
 
+  public async dialog() {
+    await Dialog.alert({
+      title: 'Haptics Feedback', 
+      message: 'Test',
+    });
+  }
+
+  public async haptic() {
+    await Haptics.impact({ style: ImpactStyle.Heavy });
+  }
+
   public async startScan(): Promise<void> {
+   
     const formats = this.formGroup.get('formats')?.value || [];
     const lensFacing =
       this.formGroup.get('lensFacing')?.value || LensFacing.Back;
+      
     const element = await this.dialogService.showModal({
       component: BarcodeScanningModalComponent,
       // Set `visibility` to `visible` to show the modal (see `src/theme/variables.scss`)
@@ -75,10 +90,11 @@ export class BarcodeScanningPage implements OnInit {
         lensFacing: lensFacing,
       },
     });
-    element.onDidDismiss().then((result) => {
+    element.onDidDismiss().then(async (result) => {
       const barcode: Barcode | undefined = result.data?.barcode;
       if (barcode) {
         this.barcodes = [barcode];
+        await Haptics.impact({ style: ImpactStyle.Heavy });
       }
     });
   }

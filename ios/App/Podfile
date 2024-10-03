@@ -17,6 +17,7 @@ def capacitor_pods
   pod 'CapacitorMlkitSelfieSegmentation', :path => '../../node_modules/@capacitor-mlkit/selfie-segmentation'
   pod 'CapacitorMlkitTranslation', :path => '../../node_modules/@capacitor-mlkit/translation'
   pod 'CapacitorApp', :path => '../../node_modules/@capacitor/app'
+  pod 'CapacitorDialog', :path => '../../node_modules/@capacitor/dialog'
   pod 'CapacitorHaptics', :path => '../../node_modules/@capacitor/haptics'
   pod 'CapacitorKeyboard', :path => '../../node_modules/@capacitor/keyboard'
   pod 'CapacitorStatusBar', :path => '../../node_modules/@capacitor/status-bar'
